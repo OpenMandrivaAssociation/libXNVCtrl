@@ -38,10 +38,9 @@ the proprietary NVidia xorg driver. This package does not contain the
 nvidia-settings tool itself as that is included with the proprietary drivers
 themselves. 
 
-
 %package -n %{devname}
 Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       %{libname}%{?_isa} = %{version}-%{release}
 Requires:       %{_lib}xext-devel
 
 %description -n %{devname}
