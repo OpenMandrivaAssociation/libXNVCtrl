@@ -1,4 +1,4 @@
-#define  oname XNVCtrl
+%define  oname libXNVCtrl
 %define libname %mklibname %{oname}
 %define devname %mklibname %{oname} -d
 
@@ -56,7 +56,7 @@ developing applications that use %{name}.
    NV_VERBOSE=1 \
    DO_STRIP=0 \
    STRIP_CMD=/dev/true \
-   -C src/%{name} \
+   -C src/%{oname} \
    libXNVCtrl.so
 
 
