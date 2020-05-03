@@ -1,10 +1,10 @@
-%define  oname XNVCtrl
+#define  oname XNVCtrl
 %define libname %mklibname %{oname}
 %define devname %mklibname %{oname} -d
 
-Name:           libXNVCtrl
+Name:           XNVCtrl
 Version:        440.82
-Release:        1
+Release:        2
 Summary:        Library providing the NV-CONTROL API
 License:        GPLv2+
 URL:            https://download.nvidia.com/XFree86/nvidia-settings/
@@ -17,10 +17,6 @@ BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xext)
 BuildRequires: hostname
 
-# Obsoletes older package provided in the NVIDIA CUDA repository
-Obsoletes: nvidia-%{name} < 3:%{version}-100
-Provides: nvidia-%{name} = 3:%{version}-100
-
 %description
 This packages contains the libXNVCtrl library from the nvidia-settings
 application. This library provides the NV-CONTROL API for communicating with
@@ -30,6 +26,7 @@ themselves.
 
 %package -n %{libname}
 Summary:	Library providing the NV-CONTROL API
+Provides: nvidia-%{libname} = 3:%{version}-100
 
 %description -n %{libname}
 This packages contains the libXNVCtrl library from the nvidia-settings
