@@ -1,3 +1,7 @@
+%define  oname XNVCtrl
+%define libname %mklibname %{oname} %{major}
+%define devname %mklibname %{oname} -d
+
 Name:           libXNVCtrl
 Version:        440.82
 Release:        1
@@ -24,13 +28,23 @@ the proprietary NVidia xorg driver. This package does not contain the
 nvidia-settings tool itself as that is included with the proprietary drivers
 themselves. 
 
+%package -n %{libname}
+Summary:	Library providing the NV-CONTROL API
 
-%package        devel
+%description -n %{libname}
+This packages contains the libXNVCtrl library from the nvidia-settings
+application. This library provides the NV-CONTROL API for communicating with
+the proprietary NVidia xorg driver. This package does not contain the
+nvidia-settings tool itself as that is included with the proprietary drivers
+themselves. 
+
+
+%package -n %{devname}
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       %{_lib}xext-devel
 
-%description    devel
+%description -n %{devname}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
@@ -61,11 +75,11 @@ install -p -m 0644 {nv_control,NVCtrl,NVCtrlLib}.h $RPM_BUILD_ROOT%{_includedir}
 popd
 
 
-%files
+%files -n %{libname}
 %license COPYING
 %{_libdir}/%{name}.so.0*
 
-%files devel
+%files -n %{devname}
 %doc doc/NV-CONTROL-API.txt doc/FRAMELOCK.txt
 %{_includedir}/NVCtrl
 %{_libdir}/%{name}.so
