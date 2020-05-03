@@ -1,16 +1,16 @@
 Name:           libXNVCtrl
-Version:        435.17
-Release:        3%{?dist}
+Version:        440.82
+Release:        1
 Summary:        Library providing the NV-CONTROL API
 License:        GPLv2+
 URL:            https://download.nvidia.com/XFree86/nvidia-settings/
 Source0:        %{url}/nvidia-settings-%{version}.tar.bz2
 Patch0:         libxnvctrl_so_0.patch
 
-BuildRequires: gcc
+#BuildRequires: gcc
 BuildRequires: make
-BuildRequires: libX11-devel
-BuildRequires: libXext-devel
+BuildRequires: pkgconfig(x11)
+BuildRequires: pkgconfig(xext)
 BuildRequires: hostname
 
 # Obsoletes older package provided in the NVIDIA CUDA repository
@@ -28,7 +28,7 @@ themselves.
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       libX11-devel%{?_isa}
+Requires:       pkgconfig(xext)%{?_isa}
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
