@@ -1,6 +1,6 @@
 %define  oname libXNVCtrl
-%define libname %mklibname %{oname}
-%define devname %mklibname %{oname} -d
+%define libname %mklibname %{name}
+%define devname %mklibname %{name} -d
 
 Name:           XNVCtrl
 Version:        440.82
@@ -26,7 +26,7 @@ themselves.
 
 %package -n %{libname}
 Summary:	Library providing the NV-CONTROL API
-Provides: nvidia-%{libname} = 3:%{version}-100
+Provides: nvidia-%{oname} = 3:%{version}-100
 
 %description -n %{libname}
 This packages contains the libXNVCtrl library from the nvidia-settings
