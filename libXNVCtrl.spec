@@ -1,5 +1,5 @@
 %define  oname XNVCtrl
-%define libname %mklibname %{oname} %{major}
+%define libname %mklibname %{oname}
 %define devname %mklibname %{oname} -d
 
 Name:           libXNVCtrl
