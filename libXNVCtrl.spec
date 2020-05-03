@@ -61,7 +61,7 @@ developing applications that use %{name}.
 
 
 %install
-pushd src/%{name}
+pushd src/%{oname}
 install -m 0755 -d $RPM_BUILD_ROOT%{_libdir}/
 install -p -m 0755 libXNVCtrl.so.0.0.0    $RPM_BUILD_ROOT%{_libdir}/
 ln -s libXNVCtrl.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/libXNVCtrl.so.0
@@ -73,9 +73,9 @@ popd
 
 %files -n %{libname}
 %license COPYING
-%{_libdir}/%{name}.so.0*
+%{_libdir}/%{oname}.so.0*
 
 %files -n %{devname}
 %doc doc/NV-CONTROL-API.txt doc/FRAMELOCK.txt
 %{_includedir}/NVCtrl
-%{_libdir}/%{name}.so
+%{_libdir}/%{oname}.so
