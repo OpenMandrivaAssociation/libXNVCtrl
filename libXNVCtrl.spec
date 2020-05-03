@@ -61,11 +61,6 @@ install -p -m 0644 {nv_control,NVCtrl,NVCtrlLib}.h $RPM_BUILD_ROOT%{_includedir}
 popd
 
 
-%ldconfig_post
-
-%ldconfig_postun
-
-
 %files
 %license COPYING
 %{_libdir}/%{name}.so.0*
