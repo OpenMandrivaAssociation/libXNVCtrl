@@ -28,7 +28,7 @@ themselves.
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       pkgconfig(xext)%{?_isa}
+Requires:       %{_lib}xext-devel
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
